@@ -1,23 +1,22 @@
+import torch
+import torch.nn as nn
+import segmentation_models_pytorch as smp
+from torch.utils.data import Dataset
+
+import cv2
+import numpy as np
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
+from sklearn.model_selection import train_test_split
+from typing import Any, Callable, Dict, Iterator, List, Optional, Tuple
+from collections import defaultdict
+from tqdm import tqdm
+import warnings
+import pickle
 import glob
 import json
 import os
-import pickle
-import warnings
-from collections import defaultdict
-from typing import Any, Callable, Dict, Iterator, List, Optional, Tuple
 
-import albumentations as A
-import cv2
-import numpy as np
-import segmentation_models_pytorch as smp
-from albumentations.pytorch import ToTensorV2
-from sklearn.model_selection import train_test_split
-from tqdm import tqdm
-
-import torch
-import torch.nn as nn
-from torch.utils.data import Dataset
-from torchvision import transforms
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
